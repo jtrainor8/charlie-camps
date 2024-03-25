@@ -2,8 +2,6 @@ if (process.env.NODE_ENV !== "production"){
     require('dotenv').config();
 }
 
-
-
 const express = require('express');
 const path = require('path');
 const ejsMate = require('ejs-mate');
@@ -23,12 +21,8 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews')
 
 const MongoStore = require('connect-mongo');
-// const dbUrl = process.env.DB_URL;
-const dbUrl = 'mongodb://127.0.0.1:27017/charlie-camps';
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/charlie-camps';
 
-
-
-//'mongodb://127.0.0.1:27017/charlie-camps'
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     // useCreateIndex: true,    **no longer supported
@@ -52,11 +46,13 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
+
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'thisshouldbeabettersecret!'
+        secret,
     }
 });
 
@@ -67,12 +63,11 @@ store.on("error", function (e) {
 const sessionConfig = {
     store,
     name: '__cs',
-    secret: 'thisshouldbeabettersecret',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
         HttpOnly: true,
-        // secure: true, //only works over https - local host doesnt work with https, will uncomment on deploy
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
     }
@@ -80,7 +75,6 @@ const sessionConfig = {
 app.use(session(sessionConfig))
 app.use(flash());
 app.use(helmet());
-
 
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
@@ -106,6 +100,7 @@ const connectSrcUrls = [
     "https://events.mapbox.com/",
 ];
 const fontSrcUrls = [];
+
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -127,7 +122,6 @@ app.use(
     })
 );
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -136,7 +130,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
