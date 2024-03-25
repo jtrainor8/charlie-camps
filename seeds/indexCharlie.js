@@ -1,10 +1,24 @@
+if (process.env.NODE_ENV !== "production"){
+    require('dotenv').config();
+}
+
 const mongoose = require('mongoose');
 const { stops } = require('./trip.js');
 const Campground = require('../models/campground');
+const MongoStore = require('connect-mongo');
+const dbUrl = process.env.DB_URL;
+const secret = process.env.SECRET;
 
-mongoose.connect('mongodb://127.0.0.1:27017/charlie-camps', {
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret,
+    }
+});
+
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
-    // useCreateIndex: true,    **no longer supported
     useUnifiedTopology: true
 });
 
@@ -20,7 +34,7 @@ const seedDb = async() => {
     await Campground.deleteMany({});
     for(let i=0; i<stops.length; i++) {
         const camp = new Campground({
-            author: '65fdff88f6e7eef74d02b3d7',
+            author: '6601d100bf23984ce5430326',
             location:`${stops[i].State}, ${stops[i].City}`,
             title: `${stops[i].Title}`,
             description: `${stops[i].Description}`, 
