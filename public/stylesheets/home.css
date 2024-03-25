@@ -1,0 +1,117 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  
+    url(https://res.cloudinary.com/dahebw7tt/image/upload/v1710465770/CharlieCamps/mghqw2wy35v340primij.jpg);    
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+.cover-container {
+    max-width: 75vw;
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-link.active {
+    color: white;
+    border-bottom-color: white;
+
+}
+
+.btn-secondary,.btn-secondary:hover {
+    color: #333;
+    text-shadow: none;
+}
+
+.intro {
+    background-color: rgba(242, 242, 242, 0.325);
+    padding: 1rem;
+    border-radius: 2.5rem;
+    margin: 4rem;
+    color: white;
+}
+
+h1{
+    font-size: 2.35rem;
+}
+
+.desc {
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
+}
+
+
+@media screen and (max-width: 1050px) {
+    body {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url(https://res.cloudinary.com/dahebw7tt/image/upload/v1710465770/CharlieCamps/mghqw2wy35v340primij.jpg);
+            background-size: cover;
+            background-position: center;
+            text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+        }
+
+    .cover-container {
+        max-width: 85vw;
+        overflow-wrap: break-word;
+        word-wrap: break-word
+    }
+
+    .nav-link {
+        padding: 0.25rem 0;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.5);
+        margin-left: .5rem;
+        border-bottom: 0.25rem solid transparent;
+    }
+
+    .nav-link:hover {
+        color: rgba(255, 255, 255, 0.5);
+        border-bottom-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-link.active {
+        color: white;
+        border-bottom-color: white;
+
+    }
+
+    .btn-secondary,
+    .btn-secondary:hover {
+        color: #333;
+        text-shadow: none;
+    }
+
+    .intro {
+            background-color: rgba(242, 242, 242, 0.325);
+            padding: .5rem;
+            border-radius:1.5rem;
+            margin: 1rem;
+            color: white;
+        }
+
+    h1 {
+            font-size: 1.85rem;
+        }
+    
+    .desc {
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+
+
+
+}

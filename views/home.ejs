@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharlieCamps</title>
+    <link crossorigin="anonymous" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+
+</head>
+<body class="d-flex text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-left mb-0">CharlieCamps</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-right">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="/campgrounds">Campgrounds</a>
+                    <% if(!currentUser) { %>
+                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/register">Register</a>
+                        <% } else { %>
+                            <a class="nav-link" href="/logout">Logout</a>
+                            <% } %>
+                </nav>
+            </div>
+        </header>
+        <main class="px-3">
+            <div class="intro">
+                <h1>Welcome to CharlieCamps!</h1>
+                <br>
+                <p class="desc">Welcome to CharlieCamps, your ultimate destination for campsite reviews and outdoor adventures! Embark on a journey with
+                us as we share the paw-some places my furry companion Charlie and I explored during our unforgettable gap year. From
+                serene lakeside retreats to rugged mountain hideaways, our travels have led us to some of the most breathtaking
+                campsites across the country.</p> 
+                
+                <p class="desc">But CharlieCamps isn't just about our adventures; it's about creating a community of fellow outdoor enthusiasts. We
+                invite you to join our pack and become part of the adventure! Sign up for an account today to share your own camping
+                experiences, leave reviews, and even add your favorite campsites to our ever-growing collection. Together, let's explore
+                the great outdoors and discover new destinations to roam with our beloved four-legged friends.</p> 
+                
+                <p class="desc">Start your journey with CharlieCamps today and unleash the explorer within!</p>
+            </div>
+                
+            <a href="/campgrounds" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white">View
+                Campgrounds</a>
+
+        </main>
+
+        <footer class="mt-auto text-white-50">
+            <p>&copy;2024 CharlieCamps</p>
+        </footer>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script crossorigin="anonymous" src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
