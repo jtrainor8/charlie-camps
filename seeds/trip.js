@@ -578,7 +578,7 @@ module.exports.stops = [
         State: 'Packwood',
         City: 'Washington',
         Title: 'Wooded Paradise',
-        Description: "Stunning place with no signal, nicoles favorite",
+        Description: "This place is a real gem! It's tucked away by a beautiful river, surrounded by lush forests. There's no signal, which was actually kind of nice – it really felt like we were off the grid. The river was the best part – perfect for swimming and jumping off rocks. Charlie, our dog, had a blast here, sunbathing on the warm rocks and splashing around in the water all day. We would've stayed longer if we could, but duty calls. If you're looking for a peaceful spot to unwind and enjoy nature, this is it!",
         Price: 0,
         Longitude: '-121.66371696163486',
         Latitude: '46.60978262995599',

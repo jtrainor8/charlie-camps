@@ -1,7 +1,10 @@
 <% layout('layouts/boilerplate')%>
-
+<link rel="stylesheet" href="/stylesheets/index.css">
     <div id="cluster-map"></div>
-    <h1 class="mb-3">All Campgrounds<a class="btn btn-outline-success mt-2" style="float: right;" href="/campgrounds/new">Add Campground</a></h1>
+    <div class="container-header">
+        <h1 class="title">All Campgrounds</h1>
+        <a class="btn btn-outline-success new-link" style="float: right;" href="/campgrounds/new">Add Campground</a>
+    </div>
     </div>
 
     <div class="container" id="campgrounds-container" style="display: inline-block;">
